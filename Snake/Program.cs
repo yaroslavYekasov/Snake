@@ -16,11 +16,10 @@ namespace Snake
             Point p2 = new Point(4,5,'#');
             p2.Draw();
 
-            static void Draw(int x, int y, char sym)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.WriteLine(sym);
-            }
+            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
+            line.Draw();
+
+            Console.ReadLine(); 
         }
     }
 }

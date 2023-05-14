@@ -40,7 +40,7 @@ namespace Snake
             return nextPoint;
         }      
         
-        public void HandlKey(ConsoleKey key)
+        public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;

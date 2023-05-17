@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +10,7 @@ namespace Snake
     {
         protected List<Point> pList;
 
-        public virtual void Draw()
+        public void Draw()
         {
             foreach (Point p in pList)
             {
@@ -21,7 +20,7 @@ namespace Snake
 
         internal bool IsHit(Figure figure)
         {
-            foreach(var p in pList)
+            foreach (var p in pList)
             {
                 if (figure.IsHit(p))
                     return true;
@@ -31,13 +30,12 @@ namespace Snake
 
         private bool IsHit(Point point)
         {
-            foreach(var p in pList)
+            foreach (var p in pList)
             {
                 if (p.IsHit(point))
                     return true;
             }
             return false;
         }
-
     }
 }

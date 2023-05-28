@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -10,7 +11,18 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(80, 25);
+            Console.Clear();
+            Console.SetWindowSize(80, 27);
+
+            int score = 4;
+
+            int xOffset = 1;
+            int yOffset = 24;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("score:4", xOffset, yOffset++);
+
+            WriteText("+", 0, 25);
+            WriteText("+", 78, 25);
 
             Walls walls = new Walls(80, 25);
             walls.Draw();
@@ -39,6 +51,8 @@ namespace Snake
                     _ = mäng.Natuke_mangida("../../../eat.wav");
                     food = foodCreator.CreateFood();
                     food.Draw();
+                    score++;
+                    WriteScore(score);
                 }
                 else
                 {
@@ -56,6 +70,13 @@ namespace Snake
             Console.ReadLine();
         }
 
+        static void WriteScore(int score)
+        {
+            int xOffset = 7;
+            int yOffset = 24;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteNum(score.ToString(), xOffset, yOffset++);
+        }
 
         static void WriteGameOver()
         {
@@ -74,6 +95,12 @@ namespace Snake
         }
 
         static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
+
+        static void WriteNum(string text, int xOffset, int yOffset)
         {
             Console.SetCursorPosition(xOffset, yOffset);
             Console.WriteLine(text);
